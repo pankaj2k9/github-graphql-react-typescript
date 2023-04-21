@@ -1,0 +1,9 @@
+query RepoDetails($name: String!, $owner:String! )  {
+ repository(name: $name, owner: $owner){
+     name
+     description
+     stargazerCount
+     forkCount
+     url
+ }
+}

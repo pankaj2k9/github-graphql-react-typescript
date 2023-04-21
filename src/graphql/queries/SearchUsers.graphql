@@ -1,0 +1,66 @@
+query SearchUsers($query: String!, $first: Int, $last: Int, $after: String, $before: String) {
+  search(
+    type: USER
+    query: $query
+    first: $first
+    last: $last
+    after: $after
+    before: $before
+  ) {
+    userCount
+    pageInfo {
+      hasNextPage
+      hasPreviousPage
+      startCursor
+      endCursor
+    }
+    edges {
+      node {
+        ... on User {
+          name
+          email
+          bio
+          login
+          avatarUrl
+          location
+          followers {
+            totalCount
+          }
+          following {
+            totalCount
+          }
+          company
+          url
+          repositories(first: 10) {
+            totalCount
+            edges {
+              node {
+                id
+                name
+                languages(first: 10) {
+                  edges {
+                    node {
+                      name
+                    }
+                  }
+                }
+                owner {
+                  login
+                }
+                nameWithOwner
+                description
+                url
+                forks {
+                  totalCount
+                }
+                stargazerCount
+                homepageUrl
+                pushedAt
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

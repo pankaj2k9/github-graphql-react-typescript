@@ -1,0 +1,24 @@
+query getUserRepos($cursor: String) {
+  viewer {
+    location
+    repositories(
+      first: 100
+      ownerAffiliations: OWNER
+      privacy: PUBLIC
+      isFork: false
+      isLocked: false
+      orderBy: {field: NAME, direction: ASC}
+      after: $cursor
+    ) {
+      nodes {
+        name
+        nameWithOwner
+        description
+        url
+        homepageUrl
+        pushedAt
+      }
+    }
+  }
+}
+
