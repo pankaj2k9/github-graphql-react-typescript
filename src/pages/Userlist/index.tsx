@@ -25,6 +25,7 @@ interface Data {
 }
 
 const Userlist: React.FC = () => {
+   // eslint-disable-next-line @typescript-eslint/no-unused-vars
    const  [searchParams, setSearchParams] = useSearchParams()
    const search = searchParams.get("q")
 
