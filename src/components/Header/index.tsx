@@ -34,7 +34,7 @@ const Header: React.FC<ThemeProps> = ({
       <GithubLogo onClick={switchTheme}/>
       <SearchForm onSubmit={handleSubmit}>
         <input
-          placeholder="Enter username..."
+          placeholder="Enter Reponame..."
           value={search}
           onChange={(e) => setSearch(e.currentTarget.value)}
         />
